@@ -23,7 +23,7 @@ except Exception:
     QISKIT_OK = False
     QuantumCircuit = SparsePauliOp = Estimator = AerEstimator = None
 
-OSRM_BASE = "https://router.project-osrm.org"
+OSRM_BASE = "https://logiq-frontend1.onrender.com"
 NOMINATIM_BASE = "https://nominatim.openstreetmap.org"
 
 app = FastAPI(title="LogiQ Routing API", version="2.5.0")
@@ -265,3 +265,4 @@ async def routes(payload: RouteRequest):
     }
 
 # Run with: uvicorn app:app --reload --host 0.0.0.0 --port 8000
+
