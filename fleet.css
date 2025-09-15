@@ -1,0 +1,173 @@
+html, body { 
+  height: 100%; 
+  margin: 0;
+  padding: 0; 
+  font-family: Inter, Arial, sans-serif; 
+}
+
+/* Background video styling */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures video covers full screen */
+  z-index: -1; /* Keeps it behind content */
+}
+
+/* Driver Input panel */
+.panel {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  z-index: 1000; 
+  background: transparent; 
+  padding: 20px; 
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3); 
+  width: 320px; 
+  text-align: left;
+  transition: 0.3s;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Added a subtle white border */
+}
+
+/* Blue glow on hover */
+.panel:hover {
+  box-shadow: 0 0 25px 6px rgba(0, 220, 255, 0.7);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.vehicle-option:hover {
+  box-shadow: 0 0 10px 6px rgba(0, 220, 255, 0.7);
+  transform: translate(-5%, -5%) scale(1.02);
+}
+
+.panel h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: white; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); 
+  text-align: center;
+}
+
+.vehicles { 
+  display: flex; 
+  justify-content: space-around; 
+  margin-bottom: 16px; 
+}
+
+.vehicle-option {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  cursor: pointer; 
+  border: 2px solid #ccc; 
+  border-radius: 12px;
+  padding: 10px; 
+  width: 80px; 
+  transition: 0.2s;
+}
+
+.vehicle-option.active {
+  border-color: purple; 
+  background: transparent; 
+  border-width: 4px;
+}
+
+/* When a vehicle is active, make its text dark again to be visible on the light background */
+.vehicle-option.active span {
+  color: purple; 
+  text-shadow: none; 
+}
+
+#destInput{
+  background:transparent;
+  color: white; /* Added to make typed text visible */
+}
+
+#destInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px; /* Adjusted font size slightly */
+}
+
+.vehicle-option span {
+  margin-top: 6px; 
+  font-size: 14px; 
+  font-weight: 600;
+  color: white; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4); 
+}
+
+select, input {
+  width: 100%; 
+  margin: 8px 0; 
+  padding: 10px;
+  border-radius: 8px; 
+  border: 1px solid #ccc; 
+  font-size: 14px;
+}
+
+/* --- Dropdown Styling --- */
+#cc {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+/* --- Style for the options when the dropdown is opened --- */
+#cc option {
+  background-color: #333;
+  color: white;
+}
+
+/* --- Microphone Button Styling --- */
+#micBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 5px;
+  margin-left: 5px;
+}
+
+/* --- UPDATED: OK Button Styling --- */
+.ok-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 15px 40px;
+  border: 2px solid #fff; /* White outline */
+  outline: none;
+  color: #FFF;
+  background-color: transparent; /* Transparent background */
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  /* animation: glowing-border 2s ease-in-out infinite alternate; / / Glowing animation REMOVED from here */
+}
+
+/* Hover effect intensifies the glow */
+.ok-btn:hover {
+  /* box-shadow: 0 0 15px #fff, 0 0 25px #fff; / / This static shadow is replaced by the animation */
+  animation: glowing-border 2s ease-in-out infinite alternate; /* Glowing animation ADDED here */
+  color: #fff;
+}
+
+/* Active state for click feedback */
+.ok-btn:active{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Animation for the glowing border effect */
+@keyframes glowing-border {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  }
+}

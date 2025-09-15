@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LogiQ – Fleet Optimization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="fleet.css">
+
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="fleet1.mp4" type="video/mp4">
+  </video>
+
+  <!-- Driver Input Panel -->
+  <div class="panel">
+    <h3>Driver Input</h3>
+    <div class="vehicles">
+      <div class="vehicle-option" id="van"><div style="font-size:28px;">🚐</div><span>Van</span></div>
+      <div class="vehicle-option" id="truck"><div style="font-size:28px;">🚛</div><span>Truck</span></div>
+      <div class="vehicle-option" id="lorry"><div style="font-size:28px;">🚚</div><span>Lorry</span></div>
+    </div>
+    <select id="cc"></select>
+    <div style="display:flex; align-items:center;">
+      <input id="destInput" type="text" placeholder="Enter destination" />
+      <button class="mic-btn" id="micBtn">🎤</button>
+    </div>
+    <button id="okBtn" class="ok-btn">OK</button>
+  </div>
+
+  <script>
+    let selectedVehicle = null;
+    let selectedCC = "1500 CC";
+
+    const vehicles = document.querySelectorAll(".vehicle-option");
+    const ccSelect = document.getElementById("cc");
+    const ccOptions = {
+      van: ["1500 CC", "2000 CC", "2500 CC"],
+      truck: ["4000 CC", "5000 CC", "6000 CC", "7000 CC"],
+      lorry: ["6000 CC", "7000 CC", "8000 CC", "9000 CC", "10000 CC"]
+    };
+
+    vehicles.forEach(v => {
+      v.addEventListener("click", () => {
+        vehicles.forEach(b => b.classList.remove("active"));
+        v.classList.add("active");
+        selectedVehicle = v.id;
+
+        ccSelect.innerHTML = "";
+        ccOptions[selectedVehicle].forEach(cc => {
+          const option = document.createElement("option");
+          option.textContent = cc;
+          ccSelect.appendChild(option);
+        });
+        selectedCC = ccSelect.value;
+      });
+    });
+
+    ccSelect.addEventListener("change", () => selectedCC = ccSelect.value);
+
+    // Voice input
+    const micBtn = document.getElementById("micBtn");
+    const destInput = document.getElementById("destInput");
+    if ('webkitSpeechRecognition' in window) {
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = "en-IN";
+      recognition.onresult = e => destInput.value = e.results[0][0].transcript;
+      micBtn.addEventListener("click", () => recognition.start());
+    }
+
+    // Function to redirect to map page
+    function redirectToMap() {
+      const query = destInput.value;
+      if (!query) return alert("Enter destination!");
+      if (!selectedVehicle) return alert("Select vehicle type!");
+
+      const cc = ccSelect.value;
+      window.location.href = `map.html?vehicle=${selectedVehicle}&cc=${cc}&dest=${encodeURIComponent(query)}`;
+    }
+
+    // OK button click
+    document.getElementById("okBtn").addEventListener("click", redirectToMap);
+
+    // Enter key press
+    destInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        redirectToMap();
+      }
+    });
+  </script>
+
+</body>
+</html>

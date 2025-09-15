@@ -1,0 +1,140 @@
+/* Basic Reset & Font Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0a183d;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Hero Section with Video Background */
+.hero-section {
+    position: relative; /* Crucial for positioning the video */
+    min-height: 100vh;
+    padding: 2rem 0;
+    overflow: hidden; /* Prevents any video overflow */
+    display: flex;
+    flex-direction: column;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the screen without distortion */
+    transform: translate(-50%, -50%);
+    z-index: -2; /* Puts the video behind everything */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 24, 61, 0.5); /* Dark overlay with 75% opacity */
+    z-index: -1; /* Sits between the video and the content */
+}
+
+.container {
+    width: 100%;      /* UPDATED: Use the full width of the window */
+    padding: 0 5%;  /* Keep some padding on the sides for spacing */
+    position: relative; /* Ensures content stays on top of the video and overlay */
+}
+
+/* Navigation Bar */
+.main-nav {
+    display: flex;
+    align-items: center;
+    padding-bottom: 8rem;
+    font-family: 'Montserrat', sans-serif;  /* Space between nav and hero content */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif; 
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.logo img {
+    height: 100px; /* Controls the height of your logo */
+    margin-right: 0.75rem;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin-left: auto; /* This is the key change that pushes the nav links to the right */
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #00a9ff;
+}
+
+.main-nav ul li a.active {
+    color: #00a9ff;
+    border-bottom: 2px solid #00a9ff;
+}
+
+/* Hero Content */
+.hero-content {
+    /* max-width: 1200px; This is no longer needed as the parent container controls the width */
+    text-align: left;
+     /* Aligns all text content to the left */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: #00a9ff;
+    margin-bottom: 2.5rem;
+}
+
+.cta-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, #00a9ff, #007bff);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 169, 255, 0.2);
+}

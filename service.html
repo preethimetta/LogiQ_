@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Overlay to improve readability */
+    .overlay {
+      background: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .title {
+      font-size: 3rem;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+    /* Service Blocks */
+    .services-container {
+      display: flex;
+      gap: 60px; /* increased spacing between service boxes */
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service-box {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      margin: 20px; /* extra space around each box */
+    }
+
+    /* Headings inline */
+    .service-box h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: #FFD700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px; /* space between icon and text */
+    }
+
+    .service-box p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .service-box:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      .services-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .service-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="services.mp4" type="video/mp4">
+  </video>
+
+  <!-- Content Overlay -->
+  <div class="overlay">
+    <h1 class="title">Our Services</h1>
+    <div class="services-container">
+      <div class="service-box">
+        <h2><span>🚚</span> Fleet Optimization</h2>
+        <p>Optimize vehicle routes, reduce idle time, and ensure smooth fleet operations with smart algorithms.</p>
+      </div>
+      <div class="service-box">
+        <h2><span>⏱️</span> ETA Prediction</h2>
+        <p>Accurate estimated time of arrival using live traffic data, ensuring timely deliveries and customer satisfaction.</p>
+      </div>
+      <div class="service-box">
+        <h2><span>💰</span> Tolls & Toll Tax</h2>
+        <p>Track toll expenses in real time, calculate toll costs in advance, and simplify financial planning for trips.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

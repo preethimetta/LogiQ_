@@ -1,0 +1,319 @@
+/* Basic Reset and Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+    background-color: #111; /* Fallback color */
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    position: relative; 
+    overflow: hidden; 
+}
+
+.page-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.main-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3rem 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    position: relative;
+    color: #fff; /* Make section titles white by default to work on transparent backgrounds */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    margin-bottom: 4rem;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text h1 span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+.hero-text p {
+    font-size: 1.125rem;
+    color: #e5e7eb;
+    margin-bottom: 2rem;
+}
+
+.hero-image-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    height: auto;
+}
+
+.hero-image-card:hover img {
+    transform: scale(1.05);
+}
+
+.hero-image-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    border: 3px solid white;
+    padding: 0.25rem;
+    border-radius: 50%;
+}
+
+/* --- Mission Section --- */
+.mission-section {
+    margin-bottom: 5rem;
+}
+
+.mission-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f0f0f0;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.mission-card:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    position: relative;
+}
+
+.mission-text p {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+.mission-text p:last-child {
+    margin-bottom: 0;
+}
+
+.mission-points .point {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+.mission-points .point:last-child {
+    margin-bottom: 0;
+}
+
+.point-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    margin-top: 0.25rem;
+}
+
+.point h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- Leadership Section --- */
+.leadership-section {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px;
+    color: #fff;
+    margin-bottom: 5rem;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leadership-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.leadership-grid {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.leader-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Adjusted shadow */
+    overflow: hidden;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Updated transition */
+    text-align: center; /* Centered the text to match the centered image */
+    flex: 1; /* This allows the cards to grow and shrink to fill the space */
+    min-width: 0; /* This allows cards to shrink properly in a flex container */
+}
+
+.leader-card:hover {
+    border-color: #90d5ff; /* Icy blue border on hover */
+    box-shadow: 0 0 20px rgba(144, 213, 255, 0.7); /* Icy blue glow effect */
+}
+
+.leader-image-container {
+    width: 10rem; /* Reduced size to help cards fit better */
+    height: 10rem; /* Reduced size to match width */
+    overflow: hidden;
+    border-radius: 50%; /* This makes the container a circle */
+    margin: 1.5rem auto 0; /* This centers the image and adds space above it */
+}
+
+.leader-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.leader-card:hover .leader-image-container img {
+    transform: scale(1.05);
+}
+
+.leader-content {
+    padding: 1.5rem;
+}
+
+.leader-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.leader-title {
+    color: #d1c4e9; /* Light purple for contrast */
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.leader-bio {
+    color: #f0f0f0; /* Light gray for readability */
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: #e9e5ff;
+    color: #631bff;
+}
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) { /* Corrected breakpoint */
+    .mission-card {
+        padding: 3rem;
+    }
+    .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    .hero-text h1 span {
+        font-size: 1.875rem;
+    }
+    /* Removed conflicting leadership-grid styles */
+}
+
+@media (min-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Removed conflicting leadership-grid styles */
+}
+

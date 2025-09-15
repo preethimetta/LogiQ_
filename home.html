@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiQ</title>
+    <link href="home.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero-section">
+    <video class="background-video" src="index.mp4" autoplay loop muted playsinline></video>
+    <div class="video-overlay"></div>
+
+    <div class="container">
+        <nav class="main-nav">
+            <a href="logo.png" class="logo">
+                <img src="logo.png" alt="LogiQ Logo">
+                <span>LogiQ</span>
+            </a>
+            <ul>
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Rule the Routes</h1>
+            <p>Smarter Routes. Faster Deliveries. Happier Customers.</p>
+            <div class="hero-buttons">
+                <button id="enter-button" class="cta-button">Enter</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ✅ Script to handle click and Enter key -->
+<script>
+  const enterBtn = document.getElementById("enter-button");
+
+  // Redirect on button click
+  enterBtn.addEventListener("click", () => {
+    window.location.href = "fleet.html";
+  });
+
+  // Redirect when user presses Enter (anywhere on page)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();    // stop default behaviour (like form submit)
+      window.location.href = "fleet.html";
+    }
+  });
+</script>
+
+</body>
+</html>
